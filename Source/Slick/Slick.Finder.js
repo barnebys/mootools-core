@@ -367,10 +367,18 @@ local.search = function(context, expression, append, first){
 				}
 			}
 
-			if (this.starSelectsClosedQSA) for (i = 0; node = nodes[i++];){
-				if (node.nodeName > '@' && !(hasOthers && uniques[this.getUID(node)])) found.push(node);
-			} else for (i = 0; node = nodes[i++];){
-				if (!(hasOthers && uniques[this.getUID(node)])) found.push(node);
+			// bug in IE 8, patched manually until mootools fix arrives.
+			// See: https://mootools.lighthouseapp.com/projects/2706-mootools/tickets/1218-bug-in-ie-with-html5-elements#ticket-1218-4
+			if (this.starSelectsClosedQSA){
+			    for (i = 0; i<nodes.length;i++){
+			        node = nodes[i];
+			        if (node.nodeName > '@' && !(hasOthers && uniques[this.getUID(node)])) found.push(node);
+			    }
+			} else {
+			    for (i = 0; i<nodes.length;i++){
+			        node = nodes[i];
+			        if (!(hasOthers && uniques[this.getUID(node)])) found.push(node);
+			    }
 			}
 
 			if (hasOthers) this.sort(found);
