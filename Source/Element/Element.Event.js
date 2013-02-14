@@ -132,7 +132,7 @@ Element.NativeEvents = {
 	click: 2, dblclick: 2, mouseup: 2, mousedown: 2, contextmenu: 2, //mouse buttons
 	mousewheel: 2, DOMMouseScroll: 2, //mouse wheel
 	mouseover: 2, mouseout: 2, mousemove: 2, selectstart: 2, selectend: 2, //mouse movement
-	keydown: 2, keypress: 2, keyup: 2, //keyboard
+	keydown: 2, keypress: 2, keyup: 2, input: 2, //keyboard
 	orientationchange: 2, // mobile
 	touchstart: 2, touchmove: 2, touchend: 2, touchcancel: 2, // touch
 	gesturestart: 2, gesturechange: 2, gestureend: 2, // gesture
